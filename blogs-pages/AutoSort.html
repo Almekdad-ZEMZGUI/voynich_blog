@@ -1,0 +1,492 @@
+<!DOCTYPE HTML>
+
+<html>
+		<style>
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			font-family: 'Inter', sans-serif;
+			color: #333;
+			line-height: 1.7;
+			padding: 20px;
+		}
+
+		header {
+			background-color: #ffffffcc;
+			padding: 40px 20px 30px;
+			text-align: center;
+			border-bottom: 2px solid #e2e8f0;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+			backdrop-filter: blur(5px);
+		}
+
+		header h1 {
+			font-size: 2.6rem;
+			color: #2d2d2d;
+			font-weight: 700;
+			margin-bottom: 8px;
+			letter-spacing: -0.5px;
+		}
+
+		header p {
+			font-size: 1.1rem;
+			color: #4a5568;
+			font-weight: 500;
+			margin-top: 4px;
+		}
+
+		main {
+			max-width: 800px;
+			margin: 30px auto;
+			background: white;
+			padding: 30px;
+			border-radius: 12px;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+		}
+
+		img {
+			max-width: 100%;
+			border-radius: 10px;
+			margin: 20px 0;
+		}
+
+		h2 {
+			font-size: 1.6rem;
+			margin: 25px 0 15px;
+		}
+
+		h3 {
+			font-size: 1.3rem;
+			margin-top: 20px;
+		}
+
+		p {
+			margin-bottom: 15px;
+		}
+
+		blockquote {
+			border-left: 4px solid #2d72d9;
+			padding-left: 15px;
+			margin: 20px 0;
+			font-style: italic;
+			color: #444;
+		}
+
+		ul {
+			margin-left: 25px;
+			margin-bottom: 20px;
+		}
+
+		li {
+			margin-bottom: 10px;
+		}
+
+		.checklist li::before {
+			content: "✔️ ";
+			color: #2d72d9;
+		}
+
+		footer {
+			text-align: center;
+			margin-top: 60px;
+			font-size: 0.9rem;
+			color: #777;
+		}
+
+		.back-button {
+			position: fixed;
+			bottom: 20px;
+			left: 20px;
+			background-color: #ffffff;
+			color: rgb(0, 0, 0);
+			padding: 10px 18px;
+			border: none;
+			border-radius: 8px;
+			font-weight: 600;
+			text-decoration: none;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+			transition: background-color 0.3s;
+			z-index: 1000;
+		}
+
+		.back-button:hover {
+			background-color: #1b4fa4;
+			color: white;
+		}
+
+		@media (max-width: 600px) {
+			header h1 {
+				font-size: 1.8rem;
+			}
+
+			header p {
+				font-size: 1rem;
+			}
+
+			main {
+				padding: 20px;
+			}
+
+		}
+	#falling-tools {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+		z-index: -1;
+		overflow: hidden;
+		}
+
+		.falling-symbol {
+		position: absolute;
+		font-size: 24px;
+		color: white;
+		animation: fall linear;
+		opacity: 0.7;
+		}
+
+		@keyframes fall {
+		0% {
+			transform: translateY(-10%);
+			opacity: 0.5;
+		}
+		100% {
+			transform: translateY(110vh);
+			opacity: 0;
+		}
+		}
+		body {
+      	margin: 0;
+		background: radial-gradient(circle, #0044cc 0%, #002244 100%);
+		color: #fff;
+		font-family: sans-serif;
+		}
+
+		canvas {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		z-index: -1;
+		}
+
+		main {
+		position: relative;
+		z-index: 1;
+		padding: 2rem;
+		}
+
+	</style>
+
+	<head>
+		<title>AutoSort</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<canvas id="aiCanvas"></canvas>
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<h1>File Organizer – The Smart Solution to Digital Clutter</h1>
+    							<h2>Tired of spending hours every week organizing your files manually? There’s a smarter way.</h2>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="../index.html">More Blogs</a></li>
+							<li><a href="#footer">Contact Us</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<main>
+						<img src="../images/blogs/Autosort.jpg" alt="Customer Feedback Visualization" />
+						
+						<h2 id="the-hidden-cost-of-a-messy-digital-workspace">The Hidden Cost of a Messy Digital Workspace</h2>
+                        <p>Every week, professionals around the world lose hours to one of the most mundane and overlooked tasks: organizing digital files.</p>
+                        <p>Whether it&#39;s your <strong>Downloads folder filled with documents</strong>, your <strong>project directory littered with random files</strong>, or a <strong>shared drive spiraling into chaos</strong>, the result is always the same:</p>
+                        <ul>
+                        <li>Wasted time</li>
+                        <li>Missed files</li>
+                        <li>Frustrated team members</li>
+                        </ul>
+                        <p>For many, the process of dragging PDFs, Word docs, spreadsheets, and images into their respective folders has become a part of the weekly routine. Some even make it a Friday ritual — cleaning up their workspace before clocking out.</p>
+                        <p>But what if that 1–3 hours a week could be saved — <em>automatically</em>?</p>
+                        <hr>
+                        <h2 id="autosort-a-smarter-way-to-organize-files">AutoSort: A Smarter Way to Organize Files</h2>
+                        <p><strong>AutoSort</strong> is a simple, user-friendly file organizer designed to bring order to digital workspaces in <strong>seconds</strong>, not hours.</p>
+                        <p>With just a few clicks, AutoSort can:</p>
+                        <ul>
+                        <li>Automatically group files by type into folders like <code>/PDFs</code>, <code>/Word</code>, <code>/Excel</code>, and <code>/Images</code></li>
+                        <li>Recursively organize subfolders — not just the main directory</li>
+                        <li>Delete empty files and clean up unused folders</li>
+                        </ul>
+                        <p>All through a <strong>clean graphical interface</strong> that even non-technical users can navigate with ease.</p>
+                        <hr>
+                        <h2 id="from-3-hours-to-2-minutes-the-time-saving-math">From 3 Hours to 2 Minutes: The Time-Saving Math</h2>
+                        <p>Let’s break it down:</p>
+                        <ul>
+                        <li><strong>Current time spent</strong>: ~1–3 hours/week per user on file organization</li>
+                        <li><strong>With AutoSort</strong>: ~1–2 minutes/week</li>
+                        <li><strong>Time saved</strong>: 58–178 minutes/week</li>
+                        </ul>
+                        <p>Now let’s attach a real-world cost to that:</p>
+                        <blockquote>
+                        <p>💼 <strong>Assuming an hourly rate of \$40</strong> (common for project managers, consultants, designers):</p>
+                        <ul>
+                        <li>Weekly savings: ~\$40–\$120</li>
+                        <li>Monthly savings (4 weeks): ~\$160–\$480</li>
+                        <li>Annual savings: <strong>\$2,080–\$6,240 per user</strong></li>
+                        </ul>
+                        </blockquote>
+                        <p>Multiply that by 5 users, 20 team members, or a full department — and the value becomes undeniable.</p>
+                        <hr>
+                        <h2 id="who-needs-autosort-">Who Needs AutoSort?</h2>
+                        <p>The beauty of AutoSort is that it works for <em>anyone</em> dealing with digital clutter. Here are some everyday examples:</p>
+                        <h3 id="-project-managers">✅ Project Managers</h3>
+                        <p>Every week, they download reports, invoices, and meeting decks. Over time, their folders become messy, making it hard to find the right document quickly.</p>
+                        <p><strong>With AutoSort</strong>: One click organizes all files into clean subfolders by type. Searching becomes effortless.</p>
+                        <h3 id="-designers-marketers">✅ Designers &amp; Marketers</h3>
+                        <p>JPGs, PNGs, PSDs, and AI files pile up. Sorting them manually wastes precious creative time.</p>
+                        <p><strong>With AutoSort</strong>: Files are grouped instantly into <code>/Images</code>, <code>/Design</code>, etc., freeing them up to focus on real work.</p>
+                        <h3 id="-students-researchers">✅ Students &amp; Researchers</h3>
+                        <p>From PDFs of articles to Excel data and Word notes — academic folders become chaotic fast.</p>
+                        <p><strong>With AutoSort</strong>: Structure is restored, and focus returns to learning and research.</p>
+                        <h3 id="-admins-assistants">✅ Admins &amp; Assistants</h3>
+                        <p>They deal with a wide variety of file formats — and a lot of them.</p>
+                        <p><strong>With AutoSort</strong>: They no longer have to manually sort each item. Less time organizing, more time getting things done.</p>
+                        <hr>
+                        <h2 id="digital-clutter-isn-t-just-annoying-it-s-risky">Digital Clutter Isn’t Just Annoying — It’s Risky</h2>
+                        <p>Aside from wasting time, disorganized digital folders also come with real risks:</p>
+                        <ul>
+                        <li><strong>Misplaced files</strong> can lead to missed deadlines or project errors</li>
+                        <li><strong>Overwritten documents</strong> due to multiple versions lying around</li>
+                        <li><strong>Empty files</strong> that serve no purpose but confuse users</li>
+                        <li><strong>Redundant folders</strong> making navigation a nightmare</li>
+                        </ul>
+                        <p>AutoSort prevents these issues by enforcing a clear, structured file system — consistently.</p>
+                        <hr>
+                        <h2 id="designed-for-humans-not-just-techies">Designed for Humans, Not Just Techies</h2>
+                        <p>One of the key strengths of AutoSort is its <strong>simplicity</strong>. You don’t need to write a script or open a terminal. You just:</p>
+                        <ol>
+                        <li>Launch the app</li>
+                        <li>Select your folder (e.g., Downloads, Desktop, Shared Drive)</li>
+                        <li><p>Choose your options:</p>
+                        <ul>
+                        <li>✅ Include subfolders</li>
+                        <li>✅ Remove empty files</li>
+                        <li>✅ Remove empty folders</li>
+                        </ul>
+                        </li>
+                        <li>Click sort.</li>
+                        </ol>
+                        <p>And that’s it. In just a few seconds, your digital chaos becomes clean structure.</p>
+                        <hr>
+                        <h2 id="clean-workspaces-clear-minds">Clean Workspaces = Clear Minds</h2>
+                        <p>We all know the mental impact of clutter. Just like a messy desk affects your focus, a messy digital space creates subconscious stress.</p>
+                        <p>By automating organization, AutoSort:</p>
+                        <ul>
+                        <li>Reduces decision fatigue</li>
+                        <li>Creates a calmer workflow</li>
+                        <li>Saves time and mental energy</li>
+                        </ul>
+                        <p>It’s a small tool with a big psychological payoff.</p>
+                        <hr>
+                        <h2 id="final-thoughts-why-autosort-matters">Final Thoughts: Why AutoSort Matters</h2>
+                        <p>In a world where we rely more and more on digital files, how we manage those files matters more than ever. AutoSort isn’t just a time-saving tool — it’s a <em>workflow upgrade</em>.</p>
+                        <p>You’re not just cleaning up folders. You’re <strong>buying back time</strong>, reducing errors, and creating a smoother day-to-day experience for yourself and your team.</p>
+                        <hr>
+                        <h2 id="tl-dr-the-business-value-of-autosort">TL;DR: The Business Value of AutoSort</h2>
+                        <table>
+                        <thead>
+                        <tr>
+                        <th>Metric</th>
+                        <th>Value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                        <td>Time saved</td>
+                        <td>1–3 hours/week per user</td>
+                        </tr>
+                        <tr>
+                        <td>Cost saved</td>
+                        <td>\$160–\$480/month per user (at \$40/hour)</td>
+                        </tr>
+                        <tr>
+                        <td>Key features</td>
+                        <td>Auto-organize files by type, GUI-based</td>
+                        </tr>
+                        <tr>
+                        <td>Target users</td>
+                        <td>Anyone with a cluttered digital folder</td>
+                        </tr>
+                        <tr>
+                        <td>Long-term benefit</td>
+                        <td>Fewer errors, better focus, less stress</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                        <hr>
+                        <p><strong>Stop sorting. Start automating.</strong></p>
+                        <p>Let AutoSort organize your files — so you can focus on what really matters.</p>
+					</main>
+				<!-- More Blogs button -->
+					<div style="text-align: center; margin: 60px 0;">
+					<a href="../index.html" style="
+						display: inline-block;
+						background-color: #007BFF;
+						color: white;
+						padding: 14px 28px;
+						font-size: 1rem;
+						border-radius: 8px;
+						text-decoration: none;
+						box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+						transition: background-color 0.3s ease;
+					" onmouseover="this.style.backgroundColor='#0056b3'" onmouseout="this.style.backgroundColor='#007BFF'">
+						← See More Blogs
+					</a>
+					</div>
+
+
+				<!-- Footer -->
+					<footer id="footer">
+					<div class="inner">
+						<section>
+						<h2>Want to talk?</h2>
+						<p>We love feedback, ideas, or just a quick hello. Reach out!</p>
+						<form method="post" action="#">
+							<div class="fields">
+							<div class="field half">
+								<input type="text" name="name" id="name" placeholder="Your Name" />
+							</div>
+							<div class="field half">
+								<input type="email" name="email" id="email" placeholder="Your Email" />
+							</div>
+							<div class="field">
+								<textarea name="message" id="message" placeholder="Write your message here..."></textarea>
+							</div>
+							</div>
+							<ul class="actions">
+							<li><input type="submit" value="Send Message" class="primary" /></li>
+							</ul>
+						</form>
+						</section>
+
+						<section>
+						<h2>Follow us</h2>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/company/voynich-services" class="icon brands style2 fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://github.com/voynich-services" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+						</section>
+
+						<ul class="copyright">
+							<li>&copy; voynich services</li>
+							<li> All Rights Reserved.</li>
+						</ul>
+					</div>
+					</footer>
+
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			<script>
+				const canvas = document.getElementById('aiCanvas');
+				const ctx = canvas.getContext('2d');
+
+				let width = canvas.width = window.innerWidth;
+				let height = canvas.height = window.innerHeight;
+
+				const tools = ['🤖', '🧠', '📊', '🔍', '⚡', '📡'];
+				let particles = [];
+
+				function createParticle() {
+				const x = Math.random() * width;
+				const y = Math.random() * height;
+				const size = Math.random() * 20 + 20;
+				const speed = Math.random() * 1 + 0.5;
+				const symbol = tools[Math.floor(Math.random() * tools.length)];
+				return { x, y, size, speed, symbol };
+				}
+
+				for (let i = 0; i < 40; i++) {
+				particles.push(createParticle());
+				}
+
+				function drawGrid() {
+				const gridSize = 40;
+				ctx.strokeStyle = 'rgba(0, 170, 255, 0.1)';
+				for (let x = 0; x < width; x += gridSize) {
+					ctx.beginPath();
+					ctx.moveTo(x, 0);
+					ctx.lineTo(x, height);
+					ctx.stroke();
+				}
+				for (let y = 0; y < height; y += gridSize) {
+					ctx.beginPath();
+					ctx.moveTo(0, y);
+					ctx.lineTo(width, y);
+					ctx.stroke();
+				}
+				}
+
+				function animate() {
+				ctx.clearRect(0, 0, width, height);
+				drawGrid();
+				particles.forEach(p => {
+					ctx.font = `${p.size}px sans-serif`;
+					ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+					ctx.fillText(p.symbol, p.x, p.y);
+					p.y += p.speed;
+					if (p.y > height) {
+					p.y = -50;
+					p.x = Math.random() * width;
+					}
+				});
+				requestAnimationFrame(animate);
+				}
+
+				animate();
+
+				window.addEventListener('resize', () => {
+				width = canvas.width = window.innerWidth;
+				height = canvas.height = window.innerHeight;
+				});
+				</script>
+
+
+	</body>
+</html>

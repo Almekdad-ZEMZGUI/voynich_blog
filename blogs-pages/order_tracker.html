@@ -1,0 +1,395 @@
+<!DOCTYPE HTML>
+
+<html>
+		<style>
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			font-family: 'Inter', sans-serif;
+			color: #333;
+			line-height: 1.7;
+			padding: 20px;
+		}
+
+		header {
+			background-color: #ffffffcc;
+			padding: 40px 20px 30px;
+			text-align: center;
+			border-bottom: 2px solid #e2e8f0;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+			backdrop-filter: blur(5px);
+		}
+
+		header h1 {
+			font-size: 2.6rem;
+			color: #2d2d2d;
+			font-weight: 700;
+			margin-bottom: 8px;
+			letter-spacing: -0.5px;
+		}
+
+		header p {
+			font-size: 1.1rem;
+			color: #4a5568;
+			font-weight: 500;
+			margin-top: 4px;
+		}
+
+		main {
+			max-width: 800px;
+			margin: 30px auto;
+			background: white;
+			padding: 30px;
+			border-radius: 12px;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+		}
+
+		img {
+			max-width: 100%;
+			border-radius: 10px;
+			margin: 20px 0;
+		}
+
+		h2 {
+			font-size: 1.6rem;
+			margin: 25px 0 15px;
+		}
+
+		h3 {
+			font-size: 1.3rem;
+			margin-top: 20px;
+		}
+
+		p {
+			margin-bottom: 15px;
+		}
+
+		blockquote {
+			border-left: 4px solid #2d72d9;
+			padding-left: 15px;
+			margin: 20px 0;
+			font-style: italic;
+			color: #444;
+		}
+
+		ul {
+			margin-left: 25px;
+			margin-bottom: 20px;
+		}
+
+		li {
+			margin-bottom: 10px;
+		}
+
+		.checklist li::before {
+			content: "✔️ ";
+			color: #2d72d9;
+		}
+
+		footer {
+			text-align: center;
+			margin-top: 60px;
+			font-size: 0.9rem;
+			color: #777;
+		}
+
+		.back-button {
+			position: fixed;
+			bottom: 20px;
+			left: 20px;
+			background-color: #ffffff;
+			color: rgb(0, 0, 0);
+			padding: 10px 18px;
+			border: none;
+			border-radius: 8px;
+			font-weight: 600;
+			text-decoration: none;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+			transition: background-color 0.3s;
+			z-index: 1000;
+		}
+
+		.back-button:hover {
+			background-color: #1b4fa4;
+			color: white;
+		}
+
+		@media (max-width: 600px) {
+			header h1 {
+				font-size: 1.8rem;
+			}
+
+			header p {
+				font-size: 1rem;
+			}
+
+			main {
+				padding: 20px;
+			}
+
+		}
+	#falling-tools {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+		z-index: -1;
+		overflow: hidden;
+		}
+
+		.falling-symbol {
+		position: absolute;
+		font-size: 24px;
+		color: white;
+		animation: fall linear;
+		opacity: 0.7;
+		}
+
+		@keyframes fall {
+		0% {
+			transform: translateY(-10%);
+			opacity: 0.5;
+		}
+		100% {
+			transform: translateY(110vh);
+			opacity: 0;
+		}
+		}
+		body {
+      	margin: 0;
+		background: radial-gradient(circle, #0044cc 0%, #002244 100%);
+		color: #fff;
+		font-family: sans-serif;
+		}
+
+		canvas {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		z-index: -1;
+		}
+
+		main {
+		position: relative;
+		z-index: 1;
+		padding: 2rem;
+		}
+
+	</style>
+	<head>
+		<title>Order Tracker</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<canvas id="aiCanvas"></canvas>
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Blog title -->
+								<h1>Reclaim Your Time: Automate Order Tracking with Ease</h1>
+    							<h2>How Smart Email Extraction Tools Simplify the Post-Purchase Experience for Busy Buyers and Businesses</h2>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="../index.html">More Blogs</a></li>
+							<li><a href="#footer">Contact Us</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<main>
+						<img src="../images/blogs/ordertracker.jpg" alt="Customer Feedback Visualization" />
+						<p>In the age of e-commerce, we buy more online than ever before. With convenience just a click away, consumers and businesses alike receive dozens of packages every month. Yet, despite all the tech powering online stores, the post-purchase experience — tracking and managing orders — remains surprisingly manual and inefficient.</p>
+                        <p>This blog post explores how businesses and frequent online buyers can reclaim time and money by automating order tracking through smart tools like the Order Tracker Extractor.</p>
+                        <p>The Problem: Email Overload and Manual Tracking</p>
+                        <p>For every online purchase, a shipping confirmation email lands in your inbox. Multiply that by ten, twenty, or more orders per month, and you’ve got a cluttered email thread filled with tracking links, estimated delivery dates, and status updates — all in different formats, from different vendors, often in multiple languages.</p>
+                        <p>The Real Business Impact:</p>
+                        <p>Time Lost: On average, manually locating and checking tracking links takes 1–2 minutes per package. For someone managing 30 orders per month, that’s 30–60 minutes/month.</p>
+                        <p>Error-Prone: Forgetting to check a shipment could lead to customer complaints, lost packages, or missed returns.</p>
+                        <p>Scattered Data: Businesses can’t easily visualize delivery performance or shipping delays across carriers.</p>
+                        <p>The Solution: Automated Order Tracking Extraction</p>
+                        <p>Order Tracker Extractor is a simple tool with powerful impact. It automatically scans your email inbox for shipping confirmations, extracts tracking numbers and carrier names, identifies the current delivery status, and organizes everything in a clean dashboard.</p>
+                        <p>How It Works :</p>
+                        <p>Connect your email.
+                        <img src="../images/blogs/connectemail.png" alt="Login page">
+                        <img src="../images/blogs/connectemail2.png" alt="choosing email"></p>
+                        <p>Configure days back and email limit retrieval. 
+                        <img src="../images/blogs/confgdayspic.png" alt="alt text"></p>
+                        <p>The app finds and reads only relevant emails using trusted patterns.
+                        <img src="../images/blogs/appfindsorders.png" alt="alt text"></p>
+                        <p>It detects the delivery status based on keywords and real shipping phrases (e.g., &quot;en cours de livraison&quot;, &quot;your package has shipped&quot;, or &quot;transferred to Speedaf for delivery&quot;).</p>
+                        <p>You get a centralized view of all orders — across vendors. </p>
+                        <p>And finally , you log out. </p>
+                        <p>Who Benefits Most?</p>
+                        <p>E-commerce Resellers: Track orders from multiple vendors and ensure smooth delivery to customers.</p>
+                        <p>Small Businesses: Centralize logistics oversight with minimal staff.</p>
+                        <p>Busy Professionals: Never forget a shipment or return deadline.</p>
+                        <p>Order Tracker Extractor doesn’t just save time — it gives insight. Imagine being able to:</p>
+                        <p>Filter shipments by carrier.</p>
+                        <p>See which vendors are consistently late.</p>
+                        <p>Get alerts for out-for-delivery or delivery failures.</p>
+                        <p>These are insights that help optimize vendor choice, improve customer experience, and boost operational efficiency.
+                        If you wouldn’t manually refresh your Instagram feed 30 times a day, why do it for package tracking?</p>
+                        <p>Order Tracker Extractor helps you regain time, reduce frustration, and operate smarter — whether you’re a business or an individual buyer.</p>
+                        <p>Small automations make a big difference — especially when they remove hidden friction from your daily workflow.</p>
+
+					</main>
+				<!-- More Blogs button -->
+					<div style="text-align: center; margin: 60px 0;">
+					<a href="../index.html" style="
+						display: inline-block;
+						background-color: #007BFF;
+						color: white;
+						padding: 14px 28px;
+						font-size: 1rem;
+						border-radius: 8px;
+						text-decoration: none;
+						box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+						transition: background-color 0.3s ease;
+					" onmouseover="this.style.backgroundColor='#0056b3'" onmouseout="this.style.backgroundColor='#007BFF'">
+						← See More Blogs
+					</a>
+					</div>
+
+
+				<!-- Footer -->
+					<footer id="footer">
+					<div class="inner">
+						<section>
+						<h2>Want to talk?</h2>
+						<p>We love feedback, ideas, or just a quick hello. Reach out!</p>
+						<form method="post" action="#">
+							<div class="fields">
+							<div class="field half">
+								<input type="text" name="name" id="name" placeholder="Your Name" />
+							</div>
+							<div class="field half">
+								<input type="email" name="email" id="email" placeholder="Your Email" />
+							</div>
+							<div class="field">
+								<textarea name="message" id="message" placeholder="Write your message here..."></textarea>
+							</div>
+							</div>
+							<ul class="actions">
+							<li><input type="submit" value="Send Message" class="primary" /></li>
+							</ul>
+						</form>
+						</section>
+
+						<section>
+						<h2>Follow us</h2>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/company/voynich-services" class="icon brands style2 fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://github.com/voynich-services" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+							</ul>
+						</section>
+
+						<ul class="copyright">
+							<li>&copy; voynich services</li>
+							<li> All Rights Reserved.</li>
+						</ul>
+					</div>
+					</footer>
+
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			<script>
+				const canvas = document.getElementById('aiCanvas');
+				const ctx = canvas.getContext('2d');
+
+				let width = canvas.width = window.innerWidth;
+				let height = canvas.height = window.innerHeight;
+
+				const tools = ['🤖', '🧠', '📊', '🔍', '⚡', '📡'];
+				let particles = [];
+
+				function createParticle() {
+				const x = Math.random() * width;
+				const y = Math.random() * height;
+				const size = Math.random() * 20 + 20;
+				const speed = Math.random() * 1 + 0.5;
+				const symbol = tools[Math.floor(Math.random() * tools.length)];
+				return { x, y, size, speed, symbol };
+				}
+
+				for (let i = 0; i < 40; i++) {
+				particles.push(createParticle());
+				}
+
+				function drawGrid() {
+				const gridSize = 40;
+				ctx.strokeStyle = 'rgba(0, 170, 255, 0.1)';
+				for (let x = 0; x < width; x += gridSize) {
+					ctx.beginPath();
+					ctx.moveTo(x, 0);
+					ctx.lineTo(x, height);
+					ctx.stroke();
+				}
+				for (let y = 0; y < height; y += gridSize) {
+					ctx.beginPath();
+					ctx.moveTo(0, y);
+					ctx.lineTo(width, y);
+					ctx.stroke();
+				}
+				}
+
+				function animate() {
+				ctx.clearRect(0, 0, width, height);
+				drawGrid();
+				particles.forEach(p => {
+					ctx.font = `${p.size}px sans-serif`;
+					ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+					ctx.fillText(p.symbol, p.x, p.y);
+					p.y += p.speed;
+					if (p.y > height) {
+					p.y = -50;
+					p.x = Math.random() * width;
+					}
+				});
+				requestAnimationFrame(animate);
+				}
+
+				animate();
+
+				window.addEventListener('resize', () => {
+				width = canvas.width = window.innerWidth;
+				height = canvas.height = window.innerHeight;
+				});
+				</script>
+
+	</body>
+</html>

@@ -1,0 +1,475 @@
+<!DOCTYPE HTML>
+
+<html>
+		<style>
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			font-family: 'Inter', sans-serif;
+			color: #333;
+			line-height: 1.7;
+			padding: 20px;
+		}
+
+		header {
+			background-color: #ffffffcc;
+			padding: 40px 20px 30px;
+			text-align: center;
+			border-bottom: 2px solid #e2e8f0;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+			backdrop-filter: blur(5px);
+		}
+
+		header h1 {
+			font-size: 2.6rem;
+			color: #2d2d2d;
+			font-weight: 700;
+			margin-bottom: 8px;
+			letter-spacing: -0.5px;
+		}
+
+		header p {
+			font-size: 1.1rem;
+			color: #4a5568;
+			font-weight: 500;
+			margin-top: 4px;
+		}
+
+		main {
+			max-width: 800px;
+			margin: 30px auto;
+			background: white;
+			padding: 30px;
+			border-radius: 12px;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+		}
+
+		img {
+			max-width: 100%;
+			border-radius: 10px;
+			margin: 20px 0;
+		}
+
+		h2 {
+			font-size: 1.6rem;
+			margin: 25px 0 15px;
+		}
+
+		h3 {
+			font-size: 1.3rem;
+			margin-top: 20px;
+		}
+
+		p {
+			margin-bottom: 15px;
+		}
+
+		blockquote {
+			border-left: 4px solid #2d72d9;
+			padding-left: 15px;
+			margin: 20px 0;
+			font-style: italic;
+			color: #444;
+		}
+
+		ul {
+			margin-left: 25px;
+			margin-bottom: 20px;
+		}
+
+		li {
+			margin-bottom: 10px;
+		}
+
+		.checklist li::before {
+			content: "✔️ ";
+			color: #2d72d9;
+		}
+
+		footer {
+			text-align: center;
+			margin-top: 60px;
+			font-size: 0.9rem;
+			color: #777;
+		}
+
+		.back-button {
+			position: fixed;
+			bottom: 20px;
+			left: 20px;
+			background-color: #ffffff;
+			color: rgb(0, 0, 0);
+			padding: 10px 18px;
+			border: none;
+			border-radius: 8px;
+			font-weight: 600;
+			text-decoration: none;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+			transition: background-color 0.3s;
+			z-index: 1000;
+		}
+
+		.back-button:hover {
+			background-color: #1b4fa4;
+			color: white;
+		}
+
+		@media (max-width: 600px) {
+			header h1 {
+				font-size: 1.8rem;
+			}
+
+			header p {
+				font-size: 1rem;
+			}
+
+			main {
+				padding: 20px;
+			}
+
+		}
+	#falling-tools {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+		z-index: -1;
+		overflow: hidden;
+		}
+
+		.falling-symbol {
+		position: absolute;
+		font-size: 24px;
+		color: white;
+		animation: fall linear;
+		opacity: 0.7;
+		}
+
+		@keyframes fall {
+		0% {
+			transform: translateY(-10%);
+			opacity: 0.5;
+		}
+		100% {
+			transform: translateY(110vh);
+			opacity: 0;
+		}
+		}
+		body {
+      	margin: 0;
+		background: radial-gradient(circle, #0044cc 0%, #002244 100%);
+		color: #fff;
+		font-family: sans-serif;
+		}
+
+		canvas {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		z-index: -1;
+		}
+
+		main {
+		position: relative;
+		z-index: 1;
+		padding: 2rem;
+		}
+
+	</style>
+	<head>
+		<title>UFO</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<canvas id="aiCanvas"></canvas>
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+                                <h1>Universal File Organizer (UFO)</h1>
+    							<h2>How Voynich Helps You Reclaim Time by Organizing Files in Seconds</h2>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="../index.html">More Blogs</a></li>
+							<li><a href="#footer">Contact Us</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<main>						
+						<h2 id="-stop-wasting-hours-sorting-files-here-s-the-smarter-way">🛸 Stop Wasting Hours Sorting Files. Here&#39;s the Smarter Way</h2>
+                        <div align="center">
+
+                        <img src="../images/blogs/ufodemo.gif" alt="UFO Demo">
+
+                        <em>Watch UFO organize 40+ messy files in seconds</em>
+
+                        </div>
+
+                        <h2 id="-your-digital-assets-are-growing-is-your-team-falling-behind-">📈 Your Digital Assets Are Growing — Is Your Team Falling Behind?</h2>
+                        <p>I still remember the day file chaos cost us a deal.<br>A partner asked for a two‑page capability brief we <em>knew</em> we had — somewhere inside 17 overlapping project folders.<br>Ten minutes of frantic searching later, the call fizzled … and so did the opportunity. Ever been there?</p>
+                        <blockquote>
+                        <p>💡 <em>&quot;If you can&#39;t find it, you can&#39;t use it. Unused information is a direct cost.&quot;</em><br>— Peter Drucker</p>
+                        </blockquote>
+                        <hr>
+                        <h2 id="-the-hidden-cost-of-manual-organisation">💸 The Hidden Cost of Manual Organisation</h2>
+                        <div align="center">
+
+                        <table>
+                            <thead>
+                                <tr>
+                                <th>What it steals</th>
+                                <th>How much it costs you</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <td>4 – 6 h/employee / month</td>
+                                <td>Lost to naming, dragging and hunting for files</td>
+                                </tr>
+                                <tr>
+                                <td>750 – 1 000 MAD</td>
+                                <td>Billable value of those hours</td>
+                                </tr>
+                                <tr>
+                                <td>90 000 + MAD / year</td>
+                                <td>Silent drain on a 10‑person team</td>
+                                </tr>
+                            </tbody>
+                            </table>
+
+
+                        </div>
+
+                        <p>That&#39;s <em>before</em> you count missed deadlines, duplicated work and stalled momentum.</p>
+                        <hr>
+                        <h2 id="-we-wanted-an-easier-way-so-we-built-one">✨ We Wanted an Easier Way — So We Built One</h2>
+                        <p>Meet <strong>Universal File Organizer (UFO)</strong> — an AI‑powered system that <em>sees</em> files the way humans do, then files them automatically <em>before</em> chaos starts.</p>
+                        <h3 id="-what-makes-ufo-different-">🎯 What Makes UFO Different?</h3>
+                        <div align="center">
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                    <th><strong>Your Pain</strong></th>
+                                    <th><strong>UFO Fix</strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                    <td>Files called <code>final_v2(4).pdf</code></td>
+                                    <td><strong>🧠 AI content recognition</strong> understands what the file <em>is</em>, not what it&#39;s named</td>
+                                    </tr>
+                                    <tr>
+                                    <td>Mixed code, docs &amp; assets</td>
+                                    <td><strong>🔍 Multi‑modal engine</strong> classifies images, text and code with <strong>94% accuracy</strong></td>
+                                    </tr>
+                                    <tr>
+                                    <td>&quot;It won&#39;t run on my machine&quot;</td>
+                                    <td><strong>🐳 One‑command Docker deploy</strong> works on any OS in five minutes</td>
+                                    </tr>
+                                    <tr>
+                                    <td>Worried about data loss</td>
+                                    <td><strong>🛡️ Safe‑move mode</strong> – UFO only moves or copies files, never deletes</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <hr>
+                        <h2 id="-what-you-gain">🎁 What You Gain</h2>
+                        <h3 id="-1-time-you-can-bill-">⏰ <strong>1. Time You Can Bill</strong></h3>
+                        <p>Organisation drops from <strong>4 – 6 hours to 30 minutes</strong> a month.<br>That&#39;s a full work‑day reclaimed every quarter — per employee.</p>
+                        <h3 id="-2-money-you-can-re-invest-">💰 <strong>2. Money You Can Re‑invest</strong></h3>
+                        <p>Replacing a junior assistant (≈ 3 600 MAD / month) with automation saves <strong>up to 3 000 MAD immediately</strong> — and scales with your head‑count.</p>
+                        <h3 id="-3-confidence-at-work-">🎯 <strong>3. Confidence at Work</strong></h3>
+                        <p>Open your laptop, type a keyword, and the right file is already <strong>where it should be</strong>.<br>Projects start faster, hand‑offs feel seamless, audits become painless.</p>
+                        <hr>
+                        <h2 id="-how-it-works-60-second-version-">⚡ How It Works (60‑Second Version)</h2>
+                        <ol>
+                        <li><strong>🔧 Rule Engine</strong> sorts the obvious files instantly.  </li>
+                        <li><strong>🕵️ Content Detective</strong> reads names, metadata and text for context.  </li>
+                        <li><strong>🧠 Deep AI Vision &amp; NLP</strong> (OpenAI CLIP + transformers) tackles the tricky 10 %.  </li>
+                        <li><strong>📂 Hierarchical Folder Builder</strong> creates a logical, repeatable structure the whole team follows.  </li>
+                        </ol>
+                        <blockquote>
+                        <p>🔒 Everything runs <strong>locally</strong> — your files never leave your network.</p>
+                        </blockquote>
+                        <hr>
+                        <h2 id="-is-ufo-for-you-">🤔 Is UFO for You?</h2>
+                        <ul>
+                        <li>📋 You manage <strong>client deliverables</strong> where version control matters.  </li>
+                        <li>🔐 You handle <strong>confidential assets</strong> and cloud solutions feel risky.  </li>
+                        <li>📈 You&#39;re scaling and need <strong>repeatable processes</strong> that don&#39;t rely on one meticulous employee.  </li>
+                        </ul>
+                        <p><strong>If any line made you nod, UFO is already overdue.</strong></p>
+                        <hr>
+                        <h2 id="-ready-to-reclaim-your-day-">🚀 Ready to Reclaim Your Day?</h2>
+                        <p>Bring order back to your workspace in minutes and keep it that way. <strong>Universal File Organizer</strong> is available now — install once, save hours forever.</p>
+                        <hr>
+                        <h3 id="-final-word">💭 Final Word</h3>
+                        <p>File chaos isn&#39;t just annoying; it silently taxes every project you run.<br><strong>UFO</strong> turns that hidden cost into competitive advantage. Let&#39;s give your team back its most valuable resources — time, focus and confidence.</p>
+                        <p><strong>Run your first organisation today</strong> — and discover what you can build when files stop getting in the way.</p>
+
+					</main>
+				<!-- More Blogs button -->
+					<div style="text-align: center; margin: 60px 0;">
+					<a href="../index.html" style="
+						display: inline-block;
+						background-color: #007BFF;
+						color: white;
+						padding: 14px 28px;
+						font-size: 1rem;
+						border-radius: 8px;
+						text-decoration: none;
+						box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+						transition: background-color 0.3s ease;
+					" onmouseover="this.style.backgroundColor='#0056b3'" onmouseout="this.style.backgroundColor='#007BFF'">
+						← See More Blogs
+					</a>
+					</div>
+
+
+				<!-- Footer -->
+					<footer id="footer">
+					<div class="inner">
+						<section>
+						<h2>Want to talk?</h2>
+						<p>We love feedback, ideas, or just a quick hello. Reach out!</p>
+						<form method="post" action="#">
+							<div class="fields">
+							<div class="field half">
+								<input type="text" name="name" id="name" placeholder="Your Name" />
+							</div>
+							<div class="field half">
+								<input type="email" name="email" id="email" placeholder="Your Email" />
+							</div>
+							<div class="field">
+								<textarea name="message" id="message" placeholder="Write your message here..."></textarea>
+							</div>
+							</div>
+							<ul class="actions">
+							<li><input type="submit" value="Send Message" class="primary" /></li>
+							</ul>
+						</form>
+						</section>
+
+						<section>
+						<h2>Follow us</h2>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/company/voynich-services" class="icon brands style2 fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://github.com/voynich-services" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+						</section>
+
+						<ul class="copyright">
+							<li>&copy; voynich services</li>
+							<li> All Rights Reserved.</li>
+						</ul>
+					</div>
+					</footer>
+
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			<script>
+				const canvas = document.getElementById('aiCanvas');
+				const ctx = canvas.getContext('2d');
+
+				let width = canvas.width = window.innerWidth;
+				let height = canvas.height = window.innerHeight;
+
+				const tools = ['🤖', '🧠', '📊', '🔍', '⚡', '📡'];
+				let particles = [];
+
+				function createParticle() {
+				const x = Math.random() * width;
+				const y = Math.random() * height;
+				const size = Math.random() * 20 + 20;
+				const speed = Math.random() * 1 + 0.5;
+				const symbol = tools[Math.floor(Math.random() * tools.length)];
+				return { x, y, size, speed, symbol };
+				}
+
+				for (let i = 0; i < 40; i++) {
+				particles.push(createParticle());
+				}
+
+				function drawGrid() {
+				const gridSize = 40;
+				ctx.strokeStyle = 'rgba(0, 170, 255, 0.1)';
+				for (let x = 0; x < width; x += gridSize) {
+					ctx.beginPath();
+					ctx.moveTo(x, 0);
+					ctx.lineTo(x, height);
+					ctx.stroke();
+				}
+				for (let y = 0; y < height; y += gridSize) {
+					ctx.beginPath();
+					ctx.moveTo(0, y);
+					ctx.lineTo(width, y);
+					ctx.stroke();
+				}
+				}
+
+				function animate() {
+				ctx.clearRect(0, 0, width, height);
+				drawGrid();
+				particles.forEach(p => {
+					ctx.font = `${p.size}px sans-serif`;
+					ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+					ctx.fillText(p.symbol, p.x, p.y);
+					p.y += p.speed;
+					if (p.y > height) {
+					p.y = -50;
+					p.x = Math.random() * width;
+					}
+				});
+				requestAnimationFrame(animate);
+				}
+
+				animate();
+
+				window.addEventListener('resize', () => {
+				width = canvas.width = window.innerWidth;
+				height = canvas.height = window.innerHeight;
+				});
+				</script>
+
+	</body>
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE HTML>
+
+<html>
+		<style>
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			font-family: 'Inter', sans-serif;
+			color: #333;
+			line-height: 1.7;
+			padding: 20px;
+		}
+
+		header {
+			background-color: #ffffffcc;
+			padding: 40px 20px 30px;
+			text-align: center;
+			border-bottom: 2px solid #e2e8f0;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+			backdrop-filter: blur(5px);
+		}
+
+		header h1 {
+			font-size: 2.6rem;
+			color: #2d2d2d;
+			font-weight: 700;
+			margin-bottom: 8px;
+			letter-spacing: -0.5px;
+		}
+
+		header p {
+			font-size: 1.1rem;
+			color: #4a5568;
+			font-weight: 500;
+			margin-top: 4px;
+		}
+
+		main {
+			max-width: 800px;
+			margin: 30px auto;
+			background: white;
+			padding: 30px;
+			border-radius: 12px;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+		}
+
+		img {
+			max-width: 100%;
+			border-radius: 10px;
+			margin: 20px 0;
+		}
+
+		h2 {
+			font-size: 1.6rem;
+			margin: 25px 0 15px;
+		}
+
+		h3 {
+			font-size: 1.3rem;
+			margin-top: 20px;
+		}
+
+		p {
+			margin-bottom: 15px;
+		}
+
+		blockquote {
+			border-left: 4px solid #2d72d9;
+			padding-left: 15px;
+			margin: 20px 0;
+			font-style: italic;
+			color: #444;
+		}
+
+		ul {
+			margin-left: 25px;
+			margin-bottom: 20px;
+		}
+
+		li {
+			margin-bottom: 10px;
+		}
+
+		.checklist li::before {
+			content: "✔️ ";
+			color: #2d72d9;
+		}
+
+		footer {
+			text-align: center;
+			margin-top: 60px;
+			font-size: 0.9rem;
+			color: #777;
+		}
+
+		.back-button {
+			position: fixed;
+			bottom: 20px;
+			left: 20px;
+			background-color: #ffffff;
+			color: rgb(0, 0, 0);
+			padding: 10px 18px;
+			border: none;
+			border-radius: 8px;
+			font-weight: 600;
+			text-decoration: none;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+			transition: background-color 0.3s;
+			z-index: 1000;
+		}
+
+		.back-button:hover {
+			background-color: #1b4fa4;
+			color: white;
+		}
+
+		@media (max-width: 600px) {
+			header h1 {
+				font-size: 1.8rem;
+			}
+
+			header p {
+				font-size: 1rem;
+			}
+
+			main {
+				padding: 20px;
+			}
+
+		}
+	#falling-tools {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+		z-index: -1;
+		overflow: hidden;
+		}
+
+		.falling-symbol {
+		position: absolute;
+		font-size: 24px;
+		color: white;
+		animation: fall linear;
+		opacity: 0.7;
+		}
+
+		@keyframes fall {
+		0% {
+			transform: translateY(-10%);
+			opacity: 0.5;
+		}
+		100% {
+			transform: translateY(110vh);
+			opacity: 0;
+		}
+		}
+		body {
+      	margin: 0;
+		background: radial-gradient(circle, #0044cc 0%, #002244 100%);
+		color: #fff;
+		font-family: sans-serif;
+		}
+
+		canvas {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		z-index: -1;
+		}
+
+		main {
+		position: relative;
+		z-index: 1;
+		padding: 2rem;
+		}
+
+	</style>
+
+	<head>
+		<title>Listeneer</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<canvas id="aiCanvas"></canvas>
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<h1>Stop Scrolling Social Media for Customer Feedback</h1>
+    							<h2>Here's a Smarter Way to Listen</h2>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="../index.html">More Blogs</a></li>
+							<li><a href="#footer">Contact Us</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<main>
+						<img src="../images/blogs/listeneer.png" alt="Customer Feedback Visualization" />
+						
+						<h2 id="people-are-talking-about-your-brand-are-you-listening-">People Are Talking About Your Brand. Are You Listening?</h2>
+						<p>Monitoring what people are saying about your brand is no longer optional — it&#39;s your competitive edge.
+						It&#39;s how you learn what your customers love and what drives them away.
+						It&#39;s where trends start and reputations rise... or fall.</p>
+						<blockquote>
+						<p>“Your most unhappy customers are your greatest source of learning.”<br>— Bill Gates</p>
+						</blockquote>
+						<p>But here&#39;s the problem: 
+						People don&#39;t always fill out your feedback forms or email your support team with constructive criticism.
+						They complain elsewhere where it&#39;s easiest — on social media platforms:
+						&quot;The login page keeps crashing&quot;, &quot;The new update broke everything&quot;, &quot;Why is customer support so slow?&quot; — and so on.</p>
+						<p>And if you don&#39;t check those platforms regularly? You miss it — and miss the chance to fix it.</p>
+						<h2 id="the-hidden-cost-of-keeping-up-">The Hidden Cost of &quot;Keeping Up&quot;</h2>
+						<p>You might&#39;ve just launched your business.
+						Maybe you’ve taken on more than one role, juggling product, team, clients, deadlines, maybe even fixing the printer, and… 
+						still, you’re expected to keep an eye on what&#39;s being said online.
+						That’s not a side task. That’s hours of work.</p>
+						<p>Every time you try to keep up, it goes like this:
+						You open a dozen tabs,
+						scroll endlessly searching for hashtags or brand names,
+						copy a few posts into a spreadsheet,
+						and you hope you didn’t miss the one that actually matters.</p>
+						<p>Before you know it, two hours gone. Again.
+						And when you&#39;re finally done? Often, the insights are too late to act on.</p>
+						<p>Let&#39;s be real: do you really have the time or energy to do this every day? Didn&#39;t think so.</p>
+						<p>And yet, countless Moroccan startups — brilliant, hardworking teams — are still stuck doing this.
+						Not by choice, but because the tools that could help are simply out of reach.</p>
+						<p>Chances are, you&#39;ve already looked into them. Maybe even tried a few:</p>
+						<ul>
+						<li>Most tools start at 300-500 MAD per month and can easily exceed 1,500 MAD, which is often beyond the budget of small teams or self-funded solopreneurs with little to no marketing spend.</li>
+						<li>They&#39;re designed for large enterprises, not for the flexibility small teams look for.</li>
+						<li>The dashboards are often uncustomizable and packed with features you may not need.</li>
+						<li>Data access is restricted with limited exports, and the analytics are complicated and hard to explain to your team or clients.</li>
+						</ul>
+						<h2 id="we-knew-there-had-to-be-a-better-way-to-end-your-struggle">We knew there had to be a better way to end your struggle</h2>
+						<p>So we built Listeneer: simple, fast, and ready to do the heavy lifting for you:</p>
+						<ul>
+						<li>Fetches brand mentions from Reddit, Twitter, TikTok, Instagram and news mentions.</li>
+						<li>Tells you how people feel about your brand.</li>
+						<li>Identifies your brand’s key strengths and areas for improvement.</li>
+						<li>Highlights which platforms need attention to boost your reputation.</li>
+						<li>Generates focused reports that show exactly where your brand stands — even against competitors.</li>
+						</ul>
+						<p>In just a few minutes, you&#39;ve got the full picture — where you shine and where you&#39;ve got work to do,
+						and the data is all yours to explore, visualize, or integrate into your own strategy. </p>
+						<p>Now you’re free to jump straight to what truly matters: making moves and driving growth.</p>
+						<h2 id="do-you-really-need-this-">Do You Really Need This?</h2>
+						<p>Only if you care about time, money, and not wasting either while your reputation is on the line.</p>
+						<h4 id="save-time">Save Time</h4>
+						<p>Manually checking just five platforms takes time you don’t have — easily 1 to 2.5 hours a day.
+						That&#39;s nearly 9 hours a week:
+						Searching, scanning, copying, reporting… it adds up fast.</p>
+						<p>We automated all of this.
+						Your job? 
+						Just review the auto-generated reports in under 5 minutes, and you&#39;re done.</p>
+						<h4 id="save-money">Save Money</h4>
+						<p>Most social media monitoring tools start at around 600 MAD per month for basic plans. But as your needs grow or you want more features, prices can quickly jump past 1,500 MAD — which can be a heavy load for businesses or individuals working with tight budgets.</p>
+						<p>Now consider what it costs to hire someone to do the job for you.
+						Even if you find a junior CM charging 60 MAD/hour, monitoring 65 hours/month would still cost you around 3,600 MAD every month.</p>
+						<p>You won’t just be avoiding those costs — you could save up to 3,000 MAD every month — and invest that money where it truly makes a difference.</p>
+						<h4 id="lead-with-confidence">Lead With Confidence</h4>
+						<p>Saving time is great. 
+						Saving money? Even better.
+						But here&#39;s the real win: Confidence.</p>
+						<ul>
+							<li><input type="checkbox" checked disabled> Confidence that you know what your customers really want.</li>
+							<li><input type="checkbox" checked disabled> Confidence in your marketing moves.</li>
+							<li><input type="checkbox" checked disabled> Confidence in growing your brand the right way.</li>
+						</ul>
+						<p>You&#39;re no longer just monitoring social media, you&#39;re leading it by actively shaping your brand&#39;s reputation with a clear understanding of how it is perceived and where it stands in the market.</p>
+						<h4 id="not-just-for-businesses-it-s-for-smart-decisions">Not Just for Businesses — It’s for Smart Decisions</h4>
+						<p>Most people assume social listening is only useful for brands and marketers.
+						But in fact, it’s for anyone who wants to make smarter decisions.</p>
+						<p>Thinking of buying a new gadget?
+						Not sure if that online course is really worth it?
+						Curious if a product is actually as good as it claims?</p>
+						<p>Just run a quick Listeneer scan.
+						You’ll instantly uncover real online sentiment — the praise, the complaints and the patterns — then choose wisely.</p>
+						<h2 id="final-word">Final Word</h2>
+						<p>Here’s the truth: 
+						If you’re not listening to your customers — someone else is, and they’re already one step ahead.</p>
+						<p>Let Listeneer show you exactly what they’re saying, where they’re saying it, and how you can use that to move forward smarter and faster.  </p>
+						<p>Run your first scan now — and in less than 5 minutes, start making decisions based on truth, not assumptions.</p>
+
+					</main>
+				<!-- More Blogs button -->
+					<div style="text-align: center; margin: 60px 0;">
+					<a href="../index.html" style="
+						display: inline-block;
+						background-color: #007BFF;
+						color: white;
+						padding: 14px 28px;
+						font-size: 1rem;
+						border-radius: 8px;
+						text-decoration: none;
+						box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+						transition: background-color 0.3s ease;
+					" onmouseover="this.style.backgroundColor='#0056b3'" onmouseout="this.style.backgroundColor='#007BFF'">
+						← See More Blogs
+					</a>
+					</div>
+
+
+				<!-- Footer -->
+					<footer id="footer">
+					<div class="inner">
+						<section>
+						<h2>Want to talk?</h2>
+						<p>We love feedback, ideas, or just a quick hello. Reach out!</p>
+						<form method="post" action="#">
+							<div class="fields">
+							<div class="field half">
+								<input type="text" name="name" id="name" placeholder="Your Name" />
+							</div>
+							<div class="field half">
+								<input type="email" name="email" id="email" placeholder="Your Email" />
+							</div>
+							<div class="field">
+								<textarea name="message" id="message" placeholder="Write your message here..."></textarea>
+							</div>
+							</div>
+							<ul class="actions">
+							<li><input type="submit" value="Send Message" class="primary" /></li>
+							</ul>
+						</form>
+						</section>
+
+						<section>
+						<h2>Follow us</h2>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/company/voynich-services" class="icon brands style2 fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://github.com/voynich-services" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+						</section>
+
+						<ul class="copyright">
+							<li>&copy; voynich services</li>
+							<li> All Rights Reserved.</li>
+						</ul>
+					</div>
+					</footer>
+
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			<script>
+				const canvas = document.getElementById('aiCanvas');
+				const ctx = canvas.getContext('2d');
+
+				let width = canvas.width = window.innerWidth;
+				let height = canvas.height = window.innerHeight;
+
+				const tools = ['🤖', '🧠', '📊', '🔍', '⚡', '📡'];
+				let particles = [];
+
+				function createParticle() {
+				const x = Math.random() * width;
+				const y = Math.random() * height;
+				const size = Math.random() * 20 + 20;
+				const speed = Math.random() * 1 + 0.5;
+				const symbol = tools[Math.floor(Math.random() * tools.length)];
+				return { x, y, size, speed, symbol };
+				}
+
+				for (let i = 0; i < 40; i++) {
+				particles.push(createParticle());
+				}
+
+				function drawGrid() {
+				const gridSize = 40;
+				ctx.strokeStyle = 'rgba(0, 170, 255, 0.1)';
+				for (let x = 0; x < width; x += gridSize) {
+					ctx.beginPath();
+					ctx.moveTo(x, 0);
+					ctx.lineTo(x, height);
+					ctx.stroke();
+				}
+				for (let y = 0; y < height; y += gridSize) {
+					ctx.beginPath();
+					ctx.moveTo(0, y);
+					ctx.lineTo(width, y);
+					ctx.stroke();
+				}
+				}
+
+				function animate() {
+				ctx.clearRect(0, 0, width, height);
+				drawGrid();
+				particles.forEach(p => {
+					ctx.font = `${p.size}px sans-serif`;
+					ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+					ctx.fillText(p.symbol, p.x, p.y);
+					p.y += p.speed;
+					if (p.y > height) {
+					p.y = -50;
+					p.x = Math.random() * width;
+					}
+				});
+				requestAnimationFrame(animate);
+				}
+
+				animate();
+
+				window.addEventListener('resize', () => {
+				width = canvas.width = window.innerWidth;
+				height = canvas.height = window.innerHeight;
+				});
+				</script>
+
+
+	</body>
+</html>
